@@ -97,5 +97,13 @@ class NoteController extends Controller
     public function destroy(Note $note)
     {
         //
+        $note->delete();
+
+        $response = [
+            'id' => $note->id,
+            'message' => 'Note berhasil dihapus'
+        ];
+
+        return response($response, 200);
     }
 }
