@@ -15,6 +15,9 @@ class NoteController extends Controller
     public function index()
     {
         //
+        $notes = Note::all();
+
+        return response($notes, 200);
     }
 
     /**
@@ -55,6 +58,9 @@ class NoteController extends Controller
     public function show(Note $note)
     {
         //
+        $note->find($note);
+
+        return response($note, 200);
     }
 
     /**
