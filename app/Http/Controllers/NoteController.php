@@ -78,6 +78,14 @@ class NoteController extends Controller
     public function update(Request $request, Note $note)
     {
         //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        $note->update($data);
+
+        return response($note, 200);
     }
 
     /**
